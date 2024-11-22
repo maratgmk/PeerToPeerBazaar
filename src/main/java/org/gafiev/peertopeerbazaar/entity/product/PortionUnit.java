@@ -1,4 +1,4 @@
-package org.example.entity.product;
+package org.gafiev.peertopeerbazaar.entity.product;
 
 public enum PortionUnit {
     GRAM,
@@ -6,5 +6,6 @@ public enum PortionUnit {
     LITER,
     MILLILITER,
     PIECE,
+    SHEAF,
     SET
 }

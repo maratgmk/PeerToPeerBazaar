@@ -1,4 +1,4 @@
-package org.example.entity.user;
+package org.gafiev.peertopeerbazaar.entity.user;
 
 public enum Role {
     UNREGISTERED,

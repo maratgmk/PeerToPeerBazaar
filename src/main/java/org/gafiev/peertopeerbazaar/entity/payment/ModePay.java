@@ -1,7 +1,7 @@
-package org.gafiev.peertopeerbazaar.entity;
+package org.gafiev.peertopeerbazaar.entity.payment;
 
 public enum ModePay {
-    CASH,
+    BARTER,
     PAY_PAL,
     CRYPTO_CURRENCY,
     BANK_TRANSFER
