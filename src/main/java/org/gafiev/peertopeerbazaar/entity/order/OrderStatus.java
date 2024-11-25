@@ -1,6 +1,6 @@
 package org.gafiev.peertopeerbazaar.entity.order;
 
-public enum StatusOrder {
+public enum OrderStatus {
     BOOKED,
     DENIED,
     PAID,

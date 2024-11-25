@@ -1,7 +1,8 @@
-package org.example.entity.product;
+package org.gafiev.peertopeerbazaar.entity.product;
 
+import jakarta.persistence.*;
 import lombok.*;
-import org.example.entity.user.User;
+import org.gafiev.peertopeerbazaar.entity.user.User;
 
 import java.math.BigDecimal;
 
@@ -11,16 +12,36 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@Entity
+@Table(name = "product")
 public class Product {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "description")
     private String description;
-    // TODO категория продукта ENTITY fragile хрупкое жидкое
+    @Enumerated(EnumType.STRING)
+    private Category category;
+    @Enumerated(EnumType.STRING)
     private PortionUnit portionUnit;
+    @Column(name = "portion_unit_count")
     private Integer portionUnitCount;
+    @Column(name = "weight")
+    private Double weight;
+    @Column(name = "volume")
+    private Double volume;
+    @Column(name = "price")
     private BigDecimal price;
-    private String imageURI; //TODO сделать интеграцию с базой фото
-    private User author;
+    @Column(name = "image_uri") //TODO сделать интеграцию с базой фото
+    private String imageURI;
+    @Column(name = "qr_code")
     private String qrCode; //TODO сделать интеграцию с базой QR
-  //TODO вес и объём
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    private User author;
+
+
 }

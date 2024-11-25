@@ -1,8 +1,6 @@
 package org.gafiev.peertopeerbazaar.entity.order;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.*;
 import org.gafiev.peertopeerbazaar.entity.product.Product;
 
@@ -12,10 +10,22 @@ import org.gafiev.peertopeerbazaar.entity.product.Product;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class OrderItem {
-    private Product product;
+@Entity
+@Table(name = "order_product")
+public class OrderProduct {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long id;
+
+//   @ManyToOne()
+//    private Product product; //TODO need this field?
+
+    @Column(name = "portion_count")
     private Integer portionCount;
+    @Column(name = "comment")
     private String comment;
+
     @ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.MERGE,CascadeType.PERSIST})
     private Order order;
 }
