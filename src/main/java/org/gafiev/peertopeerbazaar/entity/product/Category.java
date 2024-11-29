@@ -6,5 +6,4 @@ public enum Category {
     PERISHABLE,
     AVOID_HEAT,
     CHEMICAL
-
 }
