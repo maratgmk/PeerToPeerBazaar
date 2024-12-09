@@ -5,6 +5,4 @@ public enum DeliveryStatus {
     ON_THE_WAY,
     GOT_LOST,
     BACK_TO_BASE
-
-
 }
